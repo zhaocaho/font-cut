@@ -21,10 +21,9 @@
   },
   "homepage": "https://github.com/zhaocaho/font-cut#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "commander": "^9.4.0",
     "font-carrier": "^0.3.1",
-    "iconv-lite": "^0.4.13",
-    "lodash": "^3.10.1",
-    "mkdirp": "^0.5.1"
+    "lodash": "^3.10.1"
   }
 }
