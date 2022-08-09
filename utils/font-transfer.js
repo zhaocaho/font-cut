@@ -54,7 +54,7 @@ class FontTransfer {
       const { options } = this;
       fs.mkdir(options.output, () => {
         font.output({
-          path: options.output,
+          path: options.output + '/',
           types: ['woff2'],
         });
         resolve();

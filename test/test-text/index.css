@@ -1,0 +1,6 @@
+.wode {
+}
+
+.wode::after {
+  content: '牛马片，牛麻痹';
+}
