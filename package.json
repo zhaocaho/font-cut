@@ -1,0 +1,30 @@
+{
+  "name": "font-cut",
+  "version": "1.0.0",
+  "description": "切割项目中所使用的字体文件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "font-cut": "bin/font-cut.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaocaho/font-cut.git"
+  },
+  "keywords": [],
+  "author": "zhaochao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhaocaho/font-cut/issues"
+  },
+  "homepage": "https://github.com/zhaocaho/font-cut#readme",
+  "dependencies": {
+    "commander": "^9.4.0",
+    "font-carrier": "^0.3.1",
+    "iconv-lite": "^0.4.13",
+    "lodash": "^3.10.1",
+    "mkdirp": "^0.5.1"
+  }
+}
