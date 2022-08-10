@@ -1,5 +1,5 @@
 {
-  "name": "font-cut",
+  "name": "font-cutting",
   "version": "1.0.0",
   "description": "切割项目中所使用的字体文件",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "font-cut": "bin/font-cut.js"
+    "font-cutting": "bin/font-cut.js"
   },
   "repository": {
     "type": "git",

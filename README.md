@@ -1,12 +1,12 @@
-# font-cut
+# font-cutting
 
 搜集项目中的中文自己根据字体文件提取出想要的字体文件
 
-[![npm version](https://badge.fury.io/js/font-cut.svg)](http://badge.fury.io/js/font-cut)
+[![npm version](https://badge.fury.io/js/font-cutting.svg)](http://badge.fury.io/js/font-cutting)
 
 # 安装
 
-    npm install font-cut
+    npm install font-cutting
 
 # 功能
 
@@ -51,8 +51,7 @@ font-cutting -h
 
 ## 示例
 
-$ font-cut -f ./test/font/handfont.ttf -s ./test/test-text -o ./new-font -n myfont -t ttf/woff/svg
-
+$ font-cutting -f ./test/font/handfont.ttf -s ./test/test-text -o ./new-font -n myfont -t ttf/woff/svg
 
 ## 感谢
 
