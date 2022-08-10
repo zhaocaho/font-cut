@@ -53,20 +53,16 @@ class FontTransfer {
     return new Promise(resolve => {
       const { options } = this;
       let dirPath;
-      let fontName = 'font';
 
       if (options.output.charAt(options.output.length - 1) === '/') {
         dirPath = options.output;
       } else {
         dirPath = options.output + '/';
       }
-      if (options.name) {
-        fontName = options.name;
-      }
-      console.log('type:' + options.type);
+
       fs.mkdir(dirPath, () => {
         font.output({
-          path: dirPath + fontName,
+          path: dirPath + options.name,
           types: options.type.split('/'),
         });
         resolve();
