@@ -52,9 +52,21 @@ class FontTransfer {
   writeFontFile(font) {
     return new Promise(resolve => {
       const { options } = this;
-      fs.mkdir(options.output, () => {
+      let dirPath;
+      let fontName = 'font';
+
+      if (options.output.charAt(options.output.length - 1) === '/') {
+        dirPath = options.output;
+      } else {
+        dirPath = options.output + '/';
+      }
+      if (options.name) {
+        fontName = options.name;
+      }
+      console.log('name:' + fontName);
+      fs.mkdir(dirPath, () => {
         font.output({
-          path: options.output + '/',
+          path: dirPath + fontName,
           types: ['woff2'],
         });
         resolve();
