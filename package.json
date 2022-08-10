@@ -1,6 +1,6 @@
 {
   "name": "font-cutting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "切割项目中所使用的字体文件",
   "main": "index.js",
   "scripts": {
