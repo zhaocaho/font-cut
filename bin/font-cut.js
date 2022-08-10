@@ -11,9 +11,5 @@ program
 
 const options = program.opts();
 
-console.log(options);
-
 const fontTransfer = new FontTransfer(options);
 fontTransfer.output();
-
-console.log(FontTransfer);
