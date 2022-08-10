@@ -63,11 +63,11 @@ class FontTransfer {
       if (options.name) {
         fontName = options.name;
       }
-      console.log('name:' + fontName);
+      console.log('type:' + options.type);
       fs.mkdir(dirPath, () => {
         font.output({
           path: dirPath + fontName,
-          types: ['woff2'],
+          types: options.type.split('/'),
         });
         resolve();
       });

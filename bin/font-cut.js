@@ -8,6 +8,7 @@ program
   .option('-f, --font <path>', 'origin font file path')
   .option('-o, --output <filepath>', 'filepath to output font files')
   .option('-n, --name <name>', 'name for new fonts')
+  .option('-t, --type <font-type>', 'create font type', 'woff2')
   .parse();
 
 const options = program.opts();
