@@ -1,12 +1,15 @@
-const character = require("../config/common-character.js");
+const character = require("../config/common-character");
 const fontCarrier = require("font-carrier");
 const chalk = require("chalk");
+const { mergeDefaultConfig } = require("./index");
+const { getConfig } = require("../config");
+
 const fs = require("fs");
 const FontCollect = require("./font-collect");
 
 class FontTransfer {
   constructor(options) {
-    this.options = options;
+    this.options = mergeDefaultConfig(options, getConfig());
     this.init();
   }
 
@@ -23,8 +26,8 @@ class FontTransfer {
 
   getCutString() {
     const { options } = this;
-    const collect = new FontCollect();
-    const chineseText = collect.collectChinese(options.source);
+    const collect = new FontCollect(options);
+    const chineseText = collect.collectChinese();
     console.log(chalk.yellow("成功提取的字符串:\r\n >>>>>>>>>>>>>>> "));
     console.log(chalk.green(chineseText));
     return chineseText;
