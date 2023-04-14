@@ -55,6 +55,16 @@ font-cutting -h
 
 $ font-cutting -f ./test/font/handfont.ttf -s ./test/test-text -o ./new-font -n myfont -t ttf/woff/svg
 
+## 配置文件
+
+如有特殊需要配置的参数，请在项目根目录下新建“font-cutting.config.js”
+
+```
+module.exports = {
+  ignore: ["test/test-text/ignore/ignore.js", "test/test-text/ignore"], // 支持数组前缀和文件夹
+};
+```
+
 ## 本地开发
 
 ```
