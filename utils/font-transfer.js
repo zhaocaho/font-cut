@@ -1,7 +1,7 @@
-const fontCarrier = require('font-carrier');
-const chalk = require('chalk');
-const fs = require('fs');
-const FontCollect = require('./font-collect');
+const fontCarrier = require("font-carrier");
+const chalk = require("chalk");
+const fs = require("fs");
+const FontCollect = require("./font-collect");
 
 class FontTransfer {
   constructor(options) {
@@ -15,9 +15,9 @@ class FontTransfer {
   }
 
   checkOptions(options) {
-    if (!options.source) throw new Error('请填写源文件路径 --source <path>');
-    if (!options.font) throw new Error('请填写字体路径 --font <path>');
-    if (!options.output) throw new Error('请填写输出路径 --output <filepath>');
+    if (!options.source) throw new Error("请填写源文件路径 --source <path>");
+    if (!options.font) throw new Error("请填写字体路径 --font <path>");
+    if (!options.output) throw new Error("请填写输出路径 --output <filepath>");
   }
 
   getCutString() {
@@ -26,7 +26,7 @@ class FontTransfer {
     const collect = new FontCollect();
     const chineseText = collect.collectChinese(options.source);
 
-    console.log(chalk.yellow('成功提取的字符串:\r\n >>>>>>>>>>>>>>> '));
+    console.log(chalk.yellow("成功提取的字符串:\r\n >>>>>>>>>>>>>>> "));
     console.log(chalk.green(chineseText));
 
     return chineseText;
@@ -50,20 +50,20 @@ class FontTransfer {
   }
 
   writeFontFile(font) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const { options } = this;
       let dirPath;
 
-      if (options.output.charAt(options.output.length - 1) === '/') {
+      if (options.output.charAt(options.output.length - 1) === "/") {
         dirPath = options.output;
       } else {
-        dirPath = options.output + '/';
+        dirPath = options.output + "/";
       }
 
       fs.mkdir(dirPath, () => {
         font.output({
           path: dirPath + options.name,
-          types: options.type.split('/'),
+          types: options.type.split("/"),
         });
         resolve();
       });

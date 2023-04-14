@@ -7,10 +7,10 @@
 
 <script>
 export default {
-  name: '',
+  name: "",
   methods: {
     test() {
-      this.test = '2温热我的UI肉鹅五日哦额误认为入额';
+      this.test = "2温热我的UI肉鹅五日哦额误认为入额";
     },
   },
 };

@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const _ = require('lodash');
+const fs = require("fs");
+const path = require("path");
+const _ = require("lodash");
 
 class FontCollect {
   readText(fileName) {
@@ -10,17 +10,17 @@ class FontCollect {
       buffer = buffer.prototype.slice(3);
     }
 
-    return buffer.toString('utf-8');
+    return buffer.toString("utf-8");
   }
 
   getAllText(sourcePath) {
-    let text = '';
+    let text = "";
 
-    const getText = sourcePath => {
+    const getText = (sourcePath) => {
       if (!fs.statSync(sourcePath).isDirectory()) {
         text += this.readText(sourcePath);
       } else {
-        fs.readdirSync(sourcePath).forEach(file => {
+        fs.readdirSync(sourcePath).forEach((file) => {
           const pathname = path.join(sourcePath, file);
 
           if (fs.statSync(pathname).isDirectory()) {
@@ -41,7 +41,7 @@ class FontCollect {
     const text = this.getAllText(sourcePath);
     const chineseTextArray = text.match(/[\u4e00-\u9fa5]/g);
 
-    return _.uniq(chineseTextArray).join('');
+    return _.uniq(chineseTextArray).join("");
   }
 }
 
