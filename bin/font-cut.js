@@ -1,19 +1,20 @@
 #!/usr/bin/env node
 
-const program = require('commander');
-const FontTransfer = require('../utils/font-transfer');
+const program = require("commander");
+const FontTransfer = require("../utils/font-transfer");
 
 program
-  .version(require('../package.json').version)
-  .usage('[options] <file or dir ...>')
-  .option('-s, --source <path>', 'character file path or dir')
-  .option('-f, --font <path>', 'origin font file path')
-  .option('-o, --output <filepath>', 'filepath to output font files')
-  .option('-n, --name <name>', 'name for new fonts', 'font')
+  .version(require("../package.json").version)
+  .usage("[options] <file or dir ...>")
+  .option("-s, --source <path>", "character file path or dir")
+  .option("-f, --font <path>", "origin font file path")
+  .option("-o, --output <filepath>", "filepath to output font files")
+  .option("-n, --name <name>", "name for new fonts", "font")
+  .option("-a, --action <action>", "min or transfer", "min")
   .option(
-    '-t, --type <font-type>',
+    "-t, --type <font-type>",
     'create font type。 suppert:["ttf", "eot", "woff", "woff2", "svg"]',
-    'woff2'
+    "woff2"
   )
   .parse();
 
