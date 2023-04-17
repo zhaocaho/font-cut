@@ -21,12 +21,10 @@ class FontCollect {
     let text = "";
     const getText = (sourcePath) => {
       const isPathExist = this.options.ignore.includes(sourcePath);
-      if (!fs.statSync(sourcePath).isDirectory()) {
-        if (!isPathExist) {
+      if (!isPathExist) {
+        if (!fs.statSync(sourcePath).isDirectory()) {
           text += this.readText(sourcePath);
-        }
-      } else {
-        if (!isPathExist) {
+        } else {
           fs.readdirSync(sourcePath).forEach((file) => {
             const pathname = path.join(sourcePath, file);
             const isPathExist = this.options.ignore.includes(pathname);
