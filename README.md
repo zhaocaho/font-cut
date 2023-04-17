@@ -43,15 +43,35 @@ font-cutting -h
     <!-- 切割后字体的名称,默认为font-->
     -n, --name <name>        name for new fonts (default: "font")
 
+    <!-- 切割字体行为,默认为min。（min：仅精简字体、transfer：对字体做额外处理）-->
+    "-a, --action <action>", "min or transfer", "min"
+
     <!-- 切割后的字体type,默认为woff2,生成多个字体文件用 / 分开  -->
     -t, --type <font-type>   create font type。 suppert:["ttf", "eot", "woff", "woff2", "svg"] (default: "woff2")
-
 
     -h, --help display help for command
 
 ## 示例
 
 $ font-cutting -f ./test/font/handfont.ttf -s ./test/test-text -o ./new-font -n myfont -t ttf/woff/svg
+
+## 配置文件
+
+如有特殊需要配置的参数，请在项目根目录下新建“font-cutting.config.js”
+
+```
+module.exports = {
+  ignore: ["test/test-text/ignore/ignore.js", "test/test-text/ignore"], // 支持数组前缀和文件夹
+};
+```
+
+## 本地开发
+
+```
+npm install
+npm link
+npm run build
+```
 
 ## 感谢
 

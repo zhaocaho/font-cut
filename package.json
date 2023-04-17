@@ -4,7 +4,8 @@
   "description": "切割项目中所使用的字体文件",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sh ./build.sh"
   },
   "bin": {
     "font-cutting": "bin/font-cut.js"
@@ -24,6 +25,7 @@
     "chalk": "^4.1.0",
     "commander": "^9.4.0",
     "font-carrier": "^0.3.1",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "extend2": "^1.0.0"
   }
 }
