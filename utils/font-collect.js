@@ -3,6 +3,10 @@ const path = require("path");
 const _ = require("lodash");
 
 class FontCollect {
+  constructor(options) {
+    this.options = options;
+  }
+
   readText(fileName) {
     let buffer = fs.readFileSync(fileName);
 
@@ -15,20 +19,24 @@ class FontCollect {
 
   getAllText(sourcePath) {
     let text = "";
-
     const getText = (sourcePath) => {
-      if (!fs.statSync(sourcePath).isDirectory()) {
-        text += this.readText(sourcePath);
-      } else {
-        fs.readdirSync(sourcePath).forEach((file) => {
-          const pathname = path.join(sourcePath, file);
-
-          if (fs.statSync(pathname).isDirectory()) {
-            getText(pathname);
-          } else {
-            text += this.readText(pathname);
-          }
-        });
+      const isPathExist = this.options.ignore.includes(sourcePath);
+      if (!isPathExist) {
+        if (!fs.statSync(sourcePath).isDirectory()) {
+          text += this.readText(sourcePath);
+        } else {
+          fs.readdirSync(sourcePath).forEach((file) => {
+            const pathname = path.join(sourcePath, file);
+            const isPathExist = this.options.ignore.includes(pathname);
+            if (fs.statSync(pathname).isDirectory()) {
+              getText(pathname);
+            } else {
+              if (!isPathExist) {
+                text += this.readText(pathname);
+              }
+            }
+          });
+        }
       }
     };
 
@@ -37,8 +45,8 @@ class FontCollect {
     return text;
   }
 
-  collectChinese(sourcePath) {
-    const text = this.getAllText(sourcePath);
+  collectChinese() {
+    const text = this.getAllText(this.options.source);
     const chineseTextArray = text.match(/[\u4e00-\u9fa5]/g);
 
     return _.uniq(chineseTextArray).join("");
